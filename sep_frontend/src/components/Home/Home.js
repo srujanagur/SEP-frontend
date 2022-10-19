@@ -58,6 +58,7 @@ export default function Home() {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+            <Nav.Link href="/">Logout</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
