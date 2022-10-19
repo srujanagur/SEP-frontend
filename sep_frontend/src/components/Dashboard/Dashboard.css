@@ -1,0 +1,10 @@
+.dashboard {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 10%;
+}
+.dashboard-main {
+  text-align: center;
+  padding: 10px;
+}

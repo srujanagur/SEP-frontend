@@ -1,0 +1,11 @@
+.register {
+  padding: 1%;
+
+  border: 2px solid black;
+}
+.register_main {
+  align-items: center;
+  width: 50vw;
+  margin: 5%;
+  background-color: beige;
+}
