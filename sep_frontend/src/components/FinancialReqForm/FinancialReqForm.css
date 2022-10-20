@@ -1,0 +1,14 @@
+.radio-info {
+  margin: 10px;
+  padding: 2px;
+  width: 60vw;
+  border: 1px solid black;
+}
+.financialform {
+  background-color: lightblue;
+  padding: 20px;
+  width: 70vw;
+  margin: 2% 10% 2% 10%;
+  border: 2px solid slategrey;
+  border-radius: 2%;
+}

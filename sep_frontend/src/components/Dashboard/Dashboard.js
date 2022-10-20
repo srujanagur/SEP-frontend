@@ -9,10 +9,10 @@ export default function Dashboard() {
     <div className="dashboard-main">
       <h1>SEP BUSINESS</h1>
       <div className="dashboard">
-        <Button variant="success">
+        <Button variant="secondary">
           <Link to="/Login">Login</Link>
         </Button>
-        <Button variant="success">
+        <Button variant="secondary">
           <Link to="/Register">Register</Link>
         </Button>
       </div>

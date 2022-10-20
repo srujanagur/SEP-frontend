@@ -1,0 +1,17 @@
+.Categories {
+  margin: 10px;
+  padding: 2px;
+  width: 50vw;
+  border: 1px solid black;
+}
+.new-event-form {
+  background-color: lightblue;
+  padding: 20px;
+  width: 70vw;
+  margin: 2% 10% 2% 10%;
+  border: 2px solid slategrey;
+  border-radius: 2%;
+}
+h1 {
+  text-align: center;
+}
