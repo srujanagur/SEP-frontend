@@ -11,6 +11,61 @@ import Form from "react-bootstrap/Form";
 import "./Login.css";
 
 export default function Login() {
+  //   const [data, setData] = useState({
+  //     email: "",
+  //     password: "",
+  //   });
+
+  //   const handleChange = (e) => {
+  //     const value = e.target.value;
+  //     setData({
+  //       ...data,
+  //       [e.target.name]: value,
+  //     });
+  //   };
+
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //     const userData = {
+  //       email: data.email,
+  //       password: data.password,
+  //     };
+  //     axios
+  //       .post("http://localhost:5000/api/v1/user/login", userData)
+  //       .then((response) => {
+  //         console.log(response.status);
+  //         console.log(response.data.token);
+  //       });
+  //   };
+
+  //   return (
+  //     <div>
+  //       <h1>Login Account</h1>
+  //       <form onSubmit={handleSubmit}>
+  //         <label htmlFor="email">
+  //           Email
+  //           <input
+  //             type="email"
+  //             name="email"
+  //             value={data.email}
+  //             onChange={handleChange}
+  //           />
+  //         </label>
+  //         <label htmlFor="password">
+  //           Password
+  //           <input
+  //             type="password"
+  //             name="password"
+  //             value={data.password}
+  //             onChange={handleChange}
+  //           />
+  //         </label>
+  //         <button type="submit">Login</button>
+  //       </form>
+  //     </div>
+  //   );
+  // }
+
   const navigate = useNavigate();
   const [values, setValues] = useState({
     email: "",
@@ -24,7 +79,7 @@ export default function Login() {
         password: values.password,
       })
       .then((res) => {
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("token", res);
         navigate("/dashboard");
       })
       .catch((err) => console.error(err));
@@ -63,13 +118,13 @@ export default function Login() {
             aria-label="toggle password"
             edge="end"
           >
-            {values.showPass ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
+            {values.showPass ? <BsFillEyeFill /> : <BsFillEyeSlashFill />}
           </Button>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button variant="secondary" type="submit">
+        <Button variant="success" type="submit">
           <Link to="/Home">Login</Link>
         </Button>
       </Form>

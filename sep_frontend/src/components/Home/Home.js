@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import "./Home.css";
+
 export default function Home() {
   return (
     <div className="home">
@@ -18,7 +19,7 @@ export default function Home() {
                 <Nav.Link href="/NewEventForm">NewEvent</Nav.Link>
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">View</Dropdown.Item>
+                <Dropdown.Item href="/NewEventView">View</Dropdown.Item>
                 <Dropdown.Item href="/NewEventForm">NewEventForm</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
@@ -28,7 +29,7 @@ export default function Home() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">View</Dropdown.Item>
+                <Dropdown.Item href="/RecrutementView">View</Dropdown.Item>
                 <Dropdown.Item href="/RecruitementReqForm">
                   RecruitementReqForm
                 </Dropdown.Item>
@@ -40,7 +41,7 @@ export default function Home() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">View</Dropdown.Item>
+                <Dropdown.Item href="/FinancialView">View</Dropdown.Item>
                 <Dropdown.Item href="/FinancialReqForm">
                   FinancialReqForm
                 </Dropdown.Item>
@@ -52,7 +53,7 @@ export default function Home() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">View</Dropdown.Item>
+                <Dropdown.Item href="/ClientView">View</Dropdown.Item>
                 <Dropdown.Item href="/ClientReqForm">
                   ClientReqForm
                 </Dropdown.Item>

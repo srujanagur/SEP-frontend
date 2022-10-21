@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -8,7 +9,44 @@ import Row from "react-bootstrap/Row";
 
 import "./NewEventForm.css";
 
-export default function NewEventForm() {
+export default function NewEventForm({ setForm }) {
+  const [formData, setFormData] = useState({
+    contractType: "",
+    RequestingDepartment: "",
+    yearsOfExperience: 0,
+    jobTitle: "",
+    jobDescription: "",
+  });
+
+  function handleChange(e) {
+    const key = e.target.name;
+    const value = e.target.value;
+    setFormData({ ...formData, [key]: value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("http://localhost:5000/api/v1/newRecReq", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then(setForm);
+        setFormData({
+          contractType: "",
+          RequestingDepartment: "",
+          yearsOfExperience: 0,
+          jobTitle: "",
+          jobDescription: "",
+        });
+      } else {
+        res.json().then(e);
+      }
+    });
+  }
   return (
     <div>
       <h1>New EventForm</h1>
