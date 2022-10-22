@@ -1,52 +1,48 @@
 import React from "react";
+
 import { useEffect } from "react";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { getFinancialRequests } from "../../redux/actions/finRecRequestActions";
 
 import Card from "react-bootstrap/Card";
 
 import "./FinancialReqForm.css";
 
 export default function FinancialView() {
-  const [financialViewList, setFinancialViewList] = useState({ hits: [] });
+  const finalFinancialRequests = useSelector((state) => state.finReqReducer);
 
+  const dispatch = useDispatch();
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        "http://127.0.0.1:5000/api/v1/FinancialRequests"
-      );
-
-      setFinancialViewList(result.data.finRequests);
-    };
-
-    fetchData();
-  }, [financialViewList]);
-  console.log(financialViewList);
+    dispatch(getFinancialRequests());
+  }, [dispatch]);
+  console.log(finalFinancialRequests);
 
   return (
     <div>
       <div className="financial-view">
-        {financialViewList?.map((eachList) => {
-          return (
-            <Card className="eachCard">
-              <Card.Body>
-                <div>
-                  <Card.Title>
-                    RequestingDepartment: {eachList?.RequestingDepartment}
-                  </Card.Title>
-                  <Card.Text>
+        {finalFinancialRequests.financialrequests.finRequests.map(
+          (eachList) => {
+            return (
+              <Card className="eachCard">
+                <Card.Body>
+                  <div>
+                    <Card.Title>
+                      RequestingDepartment: {eachList.RequestingDepartment}
+                    </Card.Title>
+                    {/* <Card.Text>
                     projectReference: {eachList?.projectReference}
                   </Card.Text>
                   <Card.Text>
                     requiredAmount: {eachList?.requiredAmount}
                   </Card.Text>
-                  <Card.Text>reason: {eachList?.reason}</Card.Text>
-                </div>
-              </Card.Body>
-            </Card>
-          );
-        })}
+                  <Card.Text>reason: {eachList?.reason}</Card.Text> */}
+                  </div>
+                </Card.Body>
+              </Card>
+            );
+          }
+        )}
       </div>
       <Link className="link" to="/Home">
         Home

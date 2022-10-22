@@ -1,32 +1,27 @@
 import React from "react";
 import { useEffect } from "react";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { getEvents } from "../../redux/actions/eventActions";
 
 import Card from "react-bootstrap/Card";
 
 import "./NewEventForm.css";
 
 export default function NewEventView() {
-  const [eventViewList, seteventViewList] = useState([]);
+  const finalevents = useSelector((state) => state.eventReducer);
+
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/newEvents")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        console.log("hi");
-        console.log(data.events[0]);
-        console.log("hello");
-        console.log(data.events[0].clientName);
-        seteventViewList(data);
-      });
-  }, []);
+    dispatch(getEvents());
+  }, [dispatch]);
+  const requiredevents = finalevents.events;
 
   return (
     <div>
       <h1>Events Details</h1>
       <div className="event-view">
-        {eventViewList.events.map((eachList) => {
+        {requiredevents.map((eachList) => {
           return (
             <Card className="eachCard">
               <Card.Body>

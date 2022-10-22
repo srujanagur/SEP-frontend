@@ -1,25 +1,21 @@
 import React from "react";
+
 import { useEffect } from "react";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
+import { getRecruiementRequests } from "../../redux/actions/recReqActions";
 
 export default function RecrutementView() {
-  //   const [recruitementViewList, setRecuritementViewList] = useState([]);
-  useEffect(() => {
-    fetch(" http://localhost:5000/api/v1/recReqs")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        console.log("hi");
-        console.log(data.recReqs[0]);
-        console.log("hello");
-        console.log(data.recReqs[0].RequestingDepartment);
+  const finalRecruiementRequests = useSelector((state) => state.recRecReducer);
 
-        // setRecuritementViewList(data);
-      });
-  }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRecruiementRequests());
+  }, [dispatch]);
+  console.log("log" + JSON.stringify(finalRecruiementRequests));
+
   return (
     <div>
       {/* <div className="financial-view">

@@ -15,3 +15,8 @@
 h1 {
   text-align: center;
 }
+.event-view {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
