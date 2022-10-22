@@ -21,28 +21,26 @@ export default function FinancialView() {
   return (
     <div>
       <div className="financial-view">
-        {finalFinancialRequests.financialrequests.finRequests.map(
-          (eachList) => {
-            return (
-              <Card className="eachCard">
-                <Card.Body>
-                  <div>
-                    <Card.Title>
-                      RequestingDepartment: {eachList.RequestingDepartment}
-                    </Card.Title>
-                    {/* <Card.Text>
+        {finalFinancialRequests.financialrequests.map((eachList) => {
+          return (
+            <Card className="eachCard">
+              <Card.Body>
+                <div>
+                  <Card.Title>
+                    RequestingDepartment: {eachList.RequestingDepartment}
+                  </Card.Title>
+                  <Card.Text>
                     projectReference: {eachList?.projectReference}
                   </Card.Text>
                   <Card.Text>
                     requiredAmount: {eachList?.requiredAmount}
                   </Card.Text>
-                  <Card.Text>reason: {eachList?.reason}</Card.Text> */}
-                  </div>
-                </Card.Body>
-              </Card>
-            );
-          }
-        )}
+                  <Card.Text>reason: {eachList?.reason}</Card.Text>
+                </div>
+              </Card.Body>
+            </Card>
+          );
+        })}
       </div>
       <Link className="link" to="/Home">
         Home

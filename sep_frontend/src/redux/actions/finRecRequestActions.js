@@ -11,7 +11,7 @@ export const getFinancialRequests = () => async (dispatch) => {
     console.log("actions" + data);
     dispatch({
       type: "ALL_FINANCIAL_SUCCESS",
-      payload: data,
+      payload: data.finRequests,
     });
   } catch (error) {
     dispatch({

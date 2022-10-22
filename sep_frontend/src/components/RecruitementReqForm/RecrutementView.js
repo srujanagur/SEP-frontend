@@ -8,18 +8,18 @@ import Card from "react-bootstrap/Card";
 import { getRecruiementRequests } from "../../redux/actions/recReqActions";
 
 export default function RecrutementView() {
-  const finalRecruiementRequests = useSelector((state) => state.recRecReducer);
+  const finalRecruiementRequests = useSelector((state) => state.recReqReducer);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getRecruiementRequests());
   }, [dispatch]);
-  console.log("log" + JSON.stringify(finalRecruiementRequests));
+  console.log(finalRecruiementRequests.recruitementrequests);
 
   return (
     <div>
-      {/* <div className="financial-view">
-        {recruitementViewList.recReqs.map((eachList) => {
+      <div className="financial-view">
+        {finalRecruiementRequests.recruitementrequests.map((eachList) => {
           return (
             <Card className="eachCard">
               <Card.Body>
@@ -45,7 +45,7 @@ export default function RecrutementView() {
       </div>
       <Link className="link" to="/Home">
         Home
-      </Link> */}
+      </Link>
     </div>
   );
 }

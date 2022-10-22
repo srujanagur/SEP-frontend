@@ -17,7 +17,7 @@ export const finReqReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        financialrequests: action.payload.financialrequests,
+        financialrequests: action.payload,
       };
     }
     case "ALL_FINANCIAL_FAIL": {

@@ -8,10 +8,10 @@ export const getClients = () => async (dispatch) => {
     let link = `http://localhost:5000/api/v1/newClientRequests`;
 
     const { data } = await axios.get(link);
-    console.log("from clientactions bg" + JSON.stringify(data));
+    console.log("from clientactions bg" + data);
     dispatch({
       type: "ALL_CLIENT_SUCCESS",
-      payload: data,
+      payload: data.clientRequests,
     });
   } catch (error) {
     dispatch({

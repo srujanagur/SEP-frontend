@@ -8,11 +8,10 @@ export const getRecruiementRequests = () => async (dispatch) => {
     let link = `http://localhost:5000/api/v1/recReqs`;
 
     const { data } = await axios.get(link);
-    console.log("recruiteactions" + data);
-    console.log("recruiteactions1" + JSON.stringify(data));
+
     dispatch({
       type: "ALL_RECRUIEMENT_SUCCESS",
-      payload: data,
+      payload: data.recReqs,
     });
   } catch (error) {
     dispatch({
