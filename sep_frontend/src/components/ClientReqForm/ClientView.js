@@ -22,6 +22,9 @@ export default function ClientView() {
   return (
     <div>
       <h1>Client Request Details:</h1>
+      <Link className="link1" to="/Home">
+        Home
+      </Link>
       <div className="financial-view ">
         {finalClientRequests?.clientrequests?.map((eachList) => {
           return (

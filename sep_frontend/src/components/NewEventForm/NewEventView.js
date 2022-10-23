@@ -19,6 +19,9 @@ export default function NewEventView() {
   return (
     <div>
       <h1>Events Details</h1>
+      <Link className="link1" to="/Home">
+        Home
+      </Link>
       <div className="event-view">
         {finalevents.events.map((eachList) => {
           return (

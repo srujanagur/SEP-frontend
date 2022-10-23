@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -38,7 +39,7 @@ export default function Register({ setUser }) {
     }).then((res) => {
       if (res.ok) {
         res.json().then(setUser);
-        navigate("/");
+        navigate("/Dashboard");
         setFormData({
           email: "",
           password: "",
@@ -117,9 +118,12 @@ export default function Register({ setUser }) {
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" form="myForm">
-          Submit
+        <Button variant="secondary" type="submit" form="myForm">
+          <Link to="/">submit</Link>
         </Button>
+        <h7>
+          Already Registered? <Link to="/Login">Login</Link>
+        </h7>
       </Form>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/esm/Container";
 import Form from "react-bootstrap/Form";
@@ -164,6 +164,7 @@ export default function NewEventForm({ setForm }) {
             <Form.Control type="name" placeholder="" />
           </Col>
         </Form.Group>
+        <Link to="/Home">Submit</Link>
       </Form>
     </div>
   );

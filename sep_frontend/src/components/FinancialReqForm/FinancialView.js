@@ -20,6 +20,10 @@ export default function FinancialView() {
 
   return (
     <div>
+      <h1>Financial Request Details</h1>
+      <Link className="link1" to="/Home">
+        Home
+      </Link>
       <div className="financial-view">
         {finalFinancialRequests.financialrequests.map((eachList) => {
           return (

@@ -124,9 +124,13 @@ export default function Login() {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button variant="success" type="submit">
-          <Link to="/Home">Login</Link>
-        </Button>
+
+        <Link to="/Home">Login</Link>
+        <div className="right">
+          <h6>
+            If you are not Registered?<Link to="/Register">Sign up</Link>
+          </h6>
+        </div>
       </Form>
     </div>
   );

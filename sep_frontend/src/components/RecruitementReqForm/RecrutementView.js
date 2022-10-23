@@ -19,6 +19,9 @@ export default function RecrutementView() {
   return (
     <div>
       <h1>Recruitement Request Details</h1>
+      <Link className="link1" to="/Home">
+        Home
+      </Link>
       <div className="financial-view">
         {finalRecruiementRequests.recruitementrequests.map((eachList) => {
           return (
