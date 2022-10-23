@@ -17,7 +17,7 @@ export const eventReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        events: action.payload.events,
+        events: action.payload,
       };
     }
     case "ALL_EVENT_FAIL": {

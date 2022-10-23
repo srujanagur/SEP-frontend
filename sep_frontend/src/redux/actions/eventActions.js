@@ -8,12 +8,10 @@ export const getEvents = () => async (dispatch) => {
     let link = `http://localhost:5000/api/v1/newEvents`;
 
     const { data } = await axios.get(link);
-    // console.log("from actions" + data);
-    //const requireddata = JSON.stringify(data.events);
-    //console.log("required" + requireddata);
+
     dispatch({
       type: "ALL_EVENT_SUCCESS",
-      payload: data,
+      payload: data.events,
     });
     console.log("after distatch" + data);
   } catch (error) {

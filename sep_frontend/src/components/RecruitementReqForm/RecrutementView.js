@@ -18,6 +18,7 @@ export default function RecrutementView() {
 
   return (
     <div>
+      <h1>Recruitement Request Details</h1>
       <div className="financial-view">
         {finalRecruiementRequests.recruitementrequests.map((eachList) => {
           return (

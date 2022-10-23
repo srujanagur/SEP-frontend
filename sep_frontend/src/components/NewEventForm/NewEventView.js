@@ -15,13 +15,12 @@ export default function NewEventView() {
   useEffect(() => {
     dispatch(getEvents());
   }, [dispatch]);
-  const requiredevents = finalevents.events;
 
   return (
     <div>
       <h1>Events Details</h1>
       <div className="event-view">
-        {requiredevents.map((eachList) => {
+        {finalevents.events.map((eachList) => {
           return (
             <Card className="eachCard">
               <Card.Body>
@@ -35,6 +34,29 @@ export default function NewEventView() {
                   </Card.Text>
                   <Card.Text>
                     expectedNumOfAttendees: {eachList.expectedNumOfAttendees}
+                  </Card.Text>
+                  <Card.Text>
+                    preferences :
+                    <Card className="eachCard1">
+                      <Card.Text>
+                        decorations:{eachList?.preferences?.decorations}
+                      </Card.Text>
+                      <Card.Text>
+                        parties:{eachList?.preferences.parties}
+                      </Card.Text>
+                      <Card.Text>
+                        PhotosOrFilming:
+                        {eachList?.preferences.PhotosOrFilming}
+                      </Card.Text>
+                      <Card.Text>food:{eachList?.preferences.food}</Card.Text>
+                      <Card.Text>
+                        drinks:{eachList?.preferences.drinks}
+                      </Card.Text>
+                      <Card.Text>
+                        computerRelatedIssues:
+                        {eachList?.preferences.computerRelatedIssues}
+                      </Card.Text>
+                    </Card>
                   </Card.Text>
                   <Card.Text>
                     expectedBudget: {eachList.expectedBudget}

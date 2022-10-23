@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { getClients } from "../../redux/actions/clientActions";
 
+import "./ClientReqForm.css";
+
 export default function ClientView() {
   const finalClientRequests = useSelector(
     (state) => state.clientRequestReducer
@@ -20,13 +22,35 @@ export default function ClientView() {
   return (
     <div>
       <h1>Client Request Details:</h1>
-      <div className="event-view">
+      <div className="financial-view ">
         {finalClientRequests?.clientrequests?.map((eachList) => {
           return (
             <Card className="eachCard">
               <Card.Body>
                 <div>
-                  <Card.Title>Client Request Details:</Card.Title>
+                  <Card.Text>
+                    preferences :
+                    <Card className="eachCard1">
+                      <Card.Text>
+                        decorations:{eachList?.preferences?.decorations}
+                      </Card.Text>
+                      <Card.Text>
+                        parties:{eachList?.preferences?.parties}
+                      </Card.Text>
+                      <Card.Text>
+                        PhotosOrFilming:
+                        {eachList?.preferences?.PhotosOrFilming}
+                      </Card.Text>
+                      <Card.Text>food:{eachList?.preferences?.food}</Card.Text>
+                      <Card.Text>
+                        drinks:{eachList?.preferences?.drinks}
+                      </Card.Text>
+                      <Card.Text>
+                        computerRelatedIssues:
+                        {eachList?.preferences?.computerRelatedIssues}
+                      </Card.Text>
+                    </Card>
+                  </Card.Text>
                   <Card.Text>recordNumber : {eachList?.recordNumber}</Card.Text>
                   <Card.Text>clientName : {eachList?.clientName}</Card.Text>
                   <Card.Text>description : {eachList?.description}</Card.Text>
@@ -47,7 +71,7 @@ export default function ClientView() {
           );
         })}
       </div>
-      <Link className="link" to="/Home">
+      <Link className="link1" to="/Home">
         Home
       </Link>
     </div>
