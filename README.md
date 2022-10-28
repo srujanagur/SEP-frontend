@@ -1,3 +1,3 @@
-run on command line
-npm install
+run on command line</br>
+npm install</br>
 npm start
