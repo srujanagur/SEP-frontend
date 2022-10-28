@@ -1,13 +1,13 @@
 .Categories {
   margin: 10px;
   padding: 2px;
-  width: 50vw;
+
   border: 1px solid black;
 }
 .new-event-form {
   background-color: lightblue;
   padding: 20px;
-  width: 70vw;
+
   margin: 2% 10% 2% 10%;
   border: 2px solid slategrey;
   border-radius: 2%;
@@ -16,15 +16,20 @@ h1 {
   text-align: center;
 }
 .event-view {
+  /* display: grid;
+  gap: 30px;
+  padding: 5px;
+  margin: 2px;
+  align-items: center; */
+
   padding: 20px;
-  margin: 10px;
+  margin: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 20px;
 }
 .eachCard {
-  width: 18rem;
   border: 2px solid black;
   border-radius: 2%;
 }

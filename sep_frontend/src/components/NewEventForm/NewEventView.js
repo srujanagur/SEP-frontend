@@ -16,6 +16,7 @@ export default function NewEventView() {
     dispatch(getEvents());
   }, [dispatch]);
 
+  console.log(finalevents.events);
   return (
     <div>
       <h1>Events Details</h1>
@@ -28,7 +29,6 @@ export default function NewEventView() {
             <Card className="eachCard">
               <Card.Body>
                 <div>
-                  <Card.Title>Event Details:</Card.Title>
                   <Card.Text>clientName : {eachList.clientName}</Card.Text>
                   <Card.Text>eventType: {eachList.eventType}</Card.Text>
                   <Card.Text>
@@ -42,22 +42,22 @@ export default function NewEventView() {
                     preferences :
                     <Card className="eachCard1">
                       <Card.Text>
-                        decorations:{eachList?.preferences?.decorations}
+                        decorations:{eachList.preferences.decorations.toString}
                       </Card.Text>
                       <Card.Text>
-                        parties:{eachList?.preferences.parties}
+                        parties:{eachList.preferences.parties}
                       </Card.Text>
                       <Card.Text>
                         PhotosOrFilming:
-                        {eachList?.preferences.PhotosOrFilming}
+                        {eachList.preferences.PhotosOrFilming}
                       </Card.Text>
-                      <Card.Text>food:{eachList?.preferences.food}</Card.Text>
+                      <Card.Text>food:{eachList.preferences.food}</Card.Text>
                       <Card.Text>
-                        drinks:{eachList?.preferences.drinks}
+                        drinks:{eachList.preferences.drinks}
                       </Card.Text>
                       <Card.Text>
                         computerRelatedIssues:
-                        {eachList?.preferences.computerRelatedIssues}
+                        {eachList.preferences.computerRelatedIssues}
                       </Card.Text>
                     </Card>
                   </Card.Text>

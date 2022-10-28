@@ -22,3 +22,7 @@
   border: 2px solid black;
   border-radius: 2%;
 }
+.container {
+  display: grid;
+  row-gap: 20px;
+}

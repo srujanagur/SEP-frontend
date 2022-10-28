@@ -29,7 +29,7 @@ export default function RecruitementReqForm({ setForm }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      formData,
     }).then((res) => {
       if (res.ok) {
         res.json().then(setForm);
@@ -74,8 +74,8 @@ export default function RecruitementReqForm({ setForm }) {
                       inline
                       name="contractType"
                       type={type}
-                      id={`default-${type}-Part time`}
-                      label={`Part time`}
+                      id={`default-${type}-contract`}
+                      label={`contract`}
                       onChange={handleChange}
                     />
                   </Col>

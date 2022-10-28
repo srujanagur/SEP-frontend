@@ -30,9 +30,9 @@ export default function FinancialView() {
             <Card className="eachCard">
               <Card.Body>
                 <div>
-                  <Card.Title>
+                  <Card.Text>
                     RequestingDepartment: {eachList.RequestingDepartment}
-                  </Card.Title>
+                  </Card.Text>
                   <Card.Text>
                     projectReference: {eachList?.projectReference}
                   </Card.Text>

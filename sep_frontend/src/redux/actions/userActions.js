@@ -1,47 +1,62 @@
 import axios from "axios";
 
-export const getEvents = () => async (dispatch) => {
+// Login
+export const login = (email, password) => async (dispatch) => {
   try {
-    dispatch({
-      type: "ALL_EVENT_REQUESTS",
-    });
-    let link = `http://localhost:5000/api/v1/newEvents`;
-
-    const { data } = await axios.get(link);
-    dispatch({
-      type: "ALL_EVENT_SUCCESS",
-      payload: data,
-    });
+    dispatch({ type: "LOGIN_REQUEST" });
+    const config = {
+      headers: { "Content-Type": "application/json" },
+    };
+    const { data } = await axios
+      .post(
+        "http://localhost:5000/api/v1/user/login",
+        { email, password },
+        config
+      )
+      .then((res) => {
+        dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user });
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+      });
   } catch (error) {
-    dispatch({
-      type: "ALL_EVENT_FAIL",
-      payload: error.response.data.message,
-    });
+    dispatch({ type: "LOGIN_FAIL", payload: error.res.data.message });
   }
 };
 
-export const createEvent = (eventData) => async (dispatch) => {
+// Register
+export const register = (userData) => async (dispatch) => {
   try {
-    dispatch({ type: "NEW_EVENT_REQUEST" });
-
+    dispatch({ type: "REGISTER_USER_REQUEST" });
     const config = {
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post(
-      `http://localhost:5000/api/v1/newEvent`,
-      eventData,
-      config
-    );
-    dispatch({
-      type: "NEW_EVENT_SUCCESS",
-      payload: data,
-    });
+
+    const { data } = await axios
+      .post("http://localhost:5000/api/v1/user/register", userData, config)
+      .then((res) => {
+        dispatch({ type: "REGISTER_USER_SUCCESS", payload: res.data.user });
+        localStorage.setItem("token", res.data.token);
+      });
   } catch (error) {
     dispatch({
-      type: "NEW_EVENT_FAIL",
-      payload: error.response.data.message,
+      type: "REGISTER_USER_FAIL",
+      payload: error.res.data.message,
     });
   }
+};
+// Logout User
+export const logout = () => async (dispatch) => {
+  try {
+    await axios.get("http://localhost:5000/api/v1/user/logout");
+    dispatch({ type: "LOGOUT_SUCCESS" });
+  } catch (error) {
+    dispatch({ type: "LOGOUT_FAIL", payload: error.res.data.message });
+  }
+};
+
+// Clearing Errors
+export const clearErrors = () => async (dispatch) => {
+  dispatch({ type: "CLEAR_ERRORS" });
 };

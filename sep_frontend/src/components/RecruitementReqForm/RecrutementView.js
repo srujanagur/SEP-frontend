@@ -28,9 +28,7 @@ export default function RecrutementView() {
             <Card className="eachCard">
               <Card.Body>
                 <div>
-                  <Card.Title>
-                    contractType : {eachList.contractType}
-                  </Card.Title>
+                  <Card.Text>contractType : {eachList.contractType}</Card.Text>
                   <Card.Text>
                     RequestingDepartment: {eachList.RequestingDepartment}
                   </Card.Text>

@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { logout } from "../../redux/actions/userActions";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -6,8 +9,14 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import "./Home.css";
+import Button from "react-bootstrap/esm/Button";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const logoutSubmit = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+  };
   return (
     <div className="home">
       <Navbar bg="success" variant="dark">
@@ -59,7 +68,11 @@ export default function Home() {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Nav.Link href="/">Logout</Nav.Link>
+            {/* <Button variant="light" onClick={logoutSubmit}>
+              logout
+            </Button> */}
+
+            <Nav.Link href="/">logout</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
