@@ -1,0 +1,14 @@
+.container-main {
+  height: 100vh;
+  background-image: url(./../../../public/images/Event-planning1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login-content {
+  background-color: azure;
+  border: 1px solid black;
+}
+.container {
+  padding: 5px;
+  width: 50vw;
+}
